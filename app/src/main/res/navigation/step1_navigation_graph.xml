@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/step1_navigation_graph"
+    app:startDestination="@id/mainFragment1">
+
+    <fragment
+        android:id="@+id/mainFragment1"
+        android:name="com.mfeldsztejn.testapp.MainFragment1"
+        android:label="main_fragment"
+        tools:layout="@layout/main_fragment" >
+        <action
+            android:id="@+id/action_mainFragment1_to_mainFragment2"
+            app:destination="@id/mainFragment2" />
+        <action
+            android:id="@+id/action_mainFragment1_to_mainFragment3"
+            app:destination="@id/mainFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment2"
+        android:name="com.mfeldsztejn.testapp.MainFragment2"
+        android:label="MainFragment2"
+        tools:layout="@layout/main_fragment" >
+        <action
+            android:id="@+id/action_mainFragment2_to_mainFragment3"
+            app:destination="@id/mainFragment3" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment3"
+        android:name="com.mfeldsztejn.testapp.MainFragment3"
+        android:label="MainFragment3"
+        tools:layout="@layout/main_fragment" >
+        <action
+            android:id="@+id/action_mainFragment3_to_mainFragment4"
+            app:destination="@id/mainFragment4"
+            app:popUpTo="@id/mainFragment1" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainFragment4"
+        android:name="com.mfeldsztejn.testapp.MainFragment4"
+        android:label="MainFragment4"
+        tools:layout="@layout/main_fragment" />
+</navigation>
