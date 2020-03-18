@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/full_navigation_graph"
+    app:startDestination="@id/loadingFragment">
+
+    <action
+        android:id="@+id/start_step_1"
+        app:destination="@id/step1_navigation_graph" />
+
+    <action
+        android:id="@+id/start_step_2"
+        app:destination="@id/step2_navigation_graph" />
+    <action
+        android:id="@+id/start_step_3"
+        app:destination="@id/step3_navigation_graph" />
+
+    <action
+        android:id="@+id/end_flow"
+        app:destination="@id/endFragment"
+        app:popUpTo="@id/loadingFragment"
+        app:popUpToInclusive="true" />
+
+    <include app:graph="@navigation/step1_navigation_graph" />
+    <include app:graph="@navigation/step2_navigation_graph" />
+    <include app:graph="@navigation/step3_navigation_graph" />
+    <fragment
+        android:id="@+id/loadingFragment"
+        android:name="com.mfeldsztejn.testapp.LoadingFragment"
+        android:label="LoadingFragment"
+        tools:layout="@layout/loading_fragment">
+        <action
+            android:id="@+id/action_loadingFragment_to_step1_navigation_graph"
+            app:destination="@id/step1_navigation_graph"
+            app:popUpTo="@id/loadingFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loadingFragment_to_step2_navigation_graph"
+            app:destination="@id/step2_navigation_graph"
+            app:popUpTo="@id/loadingFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_loadingFragment_to_step3_navigation_graph"
+            app:destination="@id/step3_navigation_graph"
+            app:popUpTo="@id/loadingFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/endFragment"
+        android:name="com.mfeldsztejn.testapp.EndFragment"
+        android:label="EndFragment"
+        tools:layout="@layout/end_fragment" />
+</navigation>
