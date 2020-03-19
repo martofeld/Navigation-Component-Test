@@ -7,20 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <Switch
-        android:id="@+id/use_single_graph"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:checked="false"
-        android:gravity="top|end"
+    <Spinner
+        android:id="@+id/spinner"
         android:padding="16dp"
-        android:text="Use single graph" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp" />
 
     <fragment
         android:id="@+id/navigation_fragment"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:defaultNavHost="true"
-        app:navGraph="@navigation/step1_navigation_graph" />
+        app:defaultNavHost="true" />
 </FrameLayout>
