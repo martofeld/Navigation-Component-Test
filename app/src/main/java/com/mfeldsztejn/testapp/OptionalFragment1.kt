@@ -13,4 +13,6 @@ class OptionalFragment1 : BaseFragment(R.layout.main_fragment) {
 
         goto2.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_optionalFragment1_to_optionalFragment2))
     }
+
+    override fun isFirstStep() = true
 }
