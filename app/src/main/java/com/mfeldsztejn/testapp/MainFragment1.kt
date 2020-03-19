@@ -17,4 +17,6 @@ class MainFragment1 : BaseFragment(R.layout.main_fragment) {
         goto2.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_mainFragment1_to_mainFragment2))
         goto3.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_mainFragment1_to_mainFragment3))
     }
+
+    override fun isFirstStep() = true
 }

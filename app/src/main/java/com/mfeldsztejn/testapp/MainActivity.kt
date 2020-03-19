@@ -52,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        val navHostFragment = supportFragmentManager.fragments as? NavHostFragment
+        val navHostFragment = supportFragmentManager.fragments.last() as? NavHostFragment
         val onBackPressed =
             navHostFragment?.childFragmentManager?.fragments?.last() as? OnBackPressed
         onBackPressed?.onBackPressed()
