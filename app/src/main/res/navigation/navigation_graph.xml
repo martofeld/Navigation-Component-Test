@@ -17,6 +17,10 @@
         app:destination="@id/step3_navigation_graph" />
 
     <action
+        android:id="@+id/start_optional_flow"
+        app:destination="@id/optional_navigation_graph" />
+
+    <action
         android:id="@+id/end_flow"
         app:destination="@id/endFragment"
         app:popUpTo="@id/loadingFragment"
@@ -51,4 +55,5 @@
         android:name="com.mfeldsztejn.testapp.EndFragment"
         android:label="EndFragment"
         tools:layout="@layout/end_fragment" />
+    <include app:graph="@navigation/optional_navigation_graph" />
 </navigation>

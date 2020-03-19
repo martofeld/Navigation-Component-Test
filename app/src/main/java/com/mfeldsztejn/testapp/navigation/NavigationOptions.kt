@@ -24,5 +24,14 @@ enum class NavigationOptions(val nextSteps: List<String>) {
             "start_step_1",
             "end_flow"
         )
+    ),
+    OPTION_1_2_3_WITH_OPTIONAL(
+        listOf(
+            "action_loadingFragment_to_step1_navigation_graph",
+            "start_step_2",
+            "start_optional_flow",
+            "start_step_3",
+            "end_flow"
+        )
     )
 }

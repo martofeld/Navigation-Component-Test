@@ -19,10 +19,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
 
-        spinner.adapter = ArrayAdapter.createFromResource(
+        spinner.adapter = ArrayAdapter<NavigationOptions>(
             this,
-            R.array.step_options,
-            android.R.layout.simple_spinner_item
+            android.R.layout.simple_spinner_item,
+            NavigationOptions.values()
         )
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -35,25 +35,17 @@ class MainActivity : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-                when (position) {
-                    0 -> NavigationOptions.OPTION_1_2_3
-                    1 -> NavigationOptions.OPTION_3_2_1
-                    2 -> NavigationOptions.OPTION_2_3_1
-                    else -> NavigationOptions.OPTION_1_2_3
-                }
-                    .also { NavigationManager.postNavigationOption(it) }
+                NavigationManager.postNavigationOption(NavigationOptions.values()[position])
             }
 
         }
 
         NavigationManager.navigationLiveData.observe(this, Observer {
             when (it) {
-                is NavigationUpdate.GraphReplacement -> findNavController(R.id.navigation_fragment).setGraph(
-                    it.graph
-                )
-                is NavigationUpdate.GlobalAction -> findNavController(R.id.navigation_fragment).navigate(
-                    it.action
-                )
+                is NavigationUpdate.GraphReplacement ->
+                    findNavController(R.id.navigation_fragment).setGraph(it.graph)
+                is NavigationUpdate.GlobalAction ->
+                    findNavController(R.id.navigation_fragment).navigate(it.action)
             }
         })
     }
